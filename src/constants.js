@@ -1,4 +1,4 @@
-export const API_URL = "https://blog-app-ojaa.onrender.com/";
+export const API_URL = "https://blog-app-be-e2t7.onrender.com";
 
 export const CATEGORY_LIST = [
   {
