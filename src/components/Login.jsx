@@ -142,7 +142,12 @@ const Login = ({ setIsAuthenticated }) => {
           </div>
         </div>
 
-        <p className="mt-10 text-center text-sm text-gray-900">
+        <p className=" text-center text-sm text-gray-900">
+          Test Email: test@test.com
+          Test Password: 123456 
+        </p>
+
+        <p className="mt-5 text-center text-sm text-gray-900">
           Not a member?
           <button
             onClick={() => setIsLogin(false)}
