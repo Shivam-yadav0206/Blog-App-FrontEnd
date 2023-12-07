@@ -2,8 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { API } from "../service/api";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { DataContext } from "../context/DataProvider";
-import Comment from '../components/Comment'
-
+import Comment from "../components/Comment";
 
 const initialValues = {
   name: "",
@@ -91,31 +90,24 @@ const DetailView = () => {
                       alt="Jese Leos"
                     />
                     <div>
-                      <div
-                        className="text-xl font-bold text-gray-900 dark:text-white">
+                      <div className="text-xl font-bold text-gray-900 dark:text-white">
                         {post.name}
                       </div>
                       <p className="text-base text-gray-500 dark:text-gray-400">
                         Graphic Designer, educator & CEO Flowbite
                       </p>
                       <p className="text-base text-gray-500 dark:text-gray-400">
-                        <time>
-                          {`${day} ${month}, 2023`}
-                        </time>
+                        <time>{`${day} ${month}, 2023`}</time>
                       </p>
                     </div>
                   </div>
                 </address>
-                <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-                  {post.description}
-                </h1>
+                <h6 className="mb-4 font-bold">{post.description}</h6>
               </header>
               <figure>
-                <img src={post.picture} alt="" />
+                <img src={post.picture} alt="..." />
               </figure>
-              <h6 className="my-4 text-2xl  leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-                {post.content}
-              </h6>
+              <p className="my-4 text-xl">{post.content}</p>
               {account.email === post.email && (
                 <>
                   <div className="my-5 flex justify-end">
@@ -184,7 +176,11 @@ const DetailView = () => {
               </section>
               <div>
                 {comments.map((info, index) => (
-                  <Comment key={index} comment={info} setCommentUpdate={setCommentUpdate} />
+                  <Comment
+                    key={index}
+                    comment={info}
+                    setCommentUpdate={setCommentUpdate}
+                  />
                 ))}
               </div>
             </article>

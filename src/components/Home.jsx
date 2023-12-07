@@ -3,6 +3,7 @@ import Category from "./Category";
 import Posts from "./Posts";
 import React, { useEffect, useState } from "react";
 import { API } from "../service/api";
+import Search from "./Search";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -36,6 +37,7 @@ const Home = () => {
   return (
     <div className="p-2 m-2">
       <Banner />
+      <Search setFilteredPosts={setFilteredPosts} posts={posts} />
       <Category setFilteredPosts={setFilteredPosts} posts={posts} />
       <Posts filteredPosts={filteredPosts} loading={loading} error={error} />
     </div>
