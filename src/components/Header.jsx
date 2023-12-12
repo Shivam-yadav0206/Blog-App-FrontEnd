@@ -4,11 +4,18 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const Header = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [menuIcon, setMenuIcon] = useState("close");
+  
+  const [menuIcon, setMenuIcon] = useState("menu");
 
   useEffect(() => {
     onToggleMenu();
   }, [location.pathname]);
+
+  useEffect(() => {
+    setMenuIcon("menu");   
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("top-[9%]");
+  },[])
 
   const handleLogout = () => {
     setIsAuthenticated(false);
@@ -16,8 +23,8 @@ const Header = ({ setIsAuthenticated }) => {
   };
 
   function onToggleMenu() {
-    const navLinks = document.querySelector(".nav-links");
     setMenuIcon((prevIcon) => (prevIcon === "menu" ? "close" : "menu"));
+    const navLinks = document.querySelector(".nav-links");
     navLinks.classList.toggle("top-[9%]");
   }
 
