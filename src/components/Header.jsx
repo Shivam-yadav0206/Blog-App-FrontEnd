@@ -4,9 +4,11 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const Header = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [menuIcon, setMenuIcon] = useState("menu");
+  const [menuIcon, setMenuIcon] = useState("close");
 
-  useEffect(() => {onToggleMenu()}, [location.pathname]);
+  useEffect(() => {
+    onToggleMenu();
+  }, [location.pathname]);
 
   const handleLogout = () => {
     setIsAuthenticated(false);

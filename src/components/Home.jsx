@@ -4,6 +4,7 @@ import Posts from "./Posts";
 import React, { useEffect, useState } from "react";
 import { API } from "../service/api";
 import Search from "./Search";
+import Shimmer from "./Shimmer";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -13,6 +14,7 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
+      setLoading(true);
       let data = await API.getAllPosts();
       if (data.isSuccess) {
         setPosts(data.data);
@@ -20,6 +22,7 @@ const Home = () => {
         setError("Error fetching posts");
       }
     } catch (error) {
+      setLoading(false);
       console.log(error);
       setError("Error fetching posts");
     } finally {
@@ -34,6 +37,9 @@ const Home = () => {
   useEffect(() => {
     setFilteredPosts(posts);
   }, [posts]);
+
+  if(loading) return <Shimmer />
+
   return (
     <div className="p-2 m-2">
       <Banner />
