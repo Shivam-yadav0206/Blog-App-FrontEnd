@@ -34,10 +34,10 @@ const About = () => {
               <span className="text-yellow-300">
                 '
                 <Link
-                  href="https://scottwindon.com"
+                  to="https://portfolio-shivam-pi.vercel.app/"
                   target="_blank"
                   className="text-yellow-300 hover:underline focus:border-none">
-                  https://scottwindon.com
+                  https://portfolio-shivam-pi.vercel.app/
                 </Link>
                 '
               </span>
